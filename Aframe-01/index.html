@@ -23,18 +23,21 @@
   </div>
 
   
-  <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded arjs="
+  <a-scene 
+  vr-mode-ui="enabled: false;" 
+  renderer=" antialias: false; logarithmicDepthBuffer: true;"
+  stats
+  embedded arjs="
         trackingMethod: best; 
         sourceType: webcam;
-        sourceWidth:1280; 
-        sourceHeight:960; 
-        displayWidth: 1280; 
-        displayHeight: 960;
+        sourceWidth:1920; 
+        sourceHeight:1080; 
+        displayWidth: 1920; 
+        displayHeight: 1080;
         debugUIEnabled: false;">
 
         <a-assets>
           <img id="video_tn" src="./assets/play_button.png">
-
           <video 
             id="video_01" 
             src="./assets/video_01.mp4"
@@ -60,17 +63,11 @@
       emitevents="true"
       url="https://arjs-cors-proxy.herokuapp.com/https://kevinmerinsky.nyc3.digitaloceanspaces.com/ar-test/ar-test/maker_300_square_02/Marker_300_square_02"
       smooth="true"
-      smoothCount="10"
+      smoothCount="5"
       smoothTolerance=".005"
-      smoothThreshold="5">
-        <a-entity
-          geometry="primitive: box" 
-          material="src: #video_01"
-          scale="925 2 520"
-          position="170 0 -270"
-          opacity=""
-          play-on-click
-          >
+      smoothThreshold="5"
+    >
+        <a-video src="#video_01" width="16" height="9" scale="70 70 70" position="350 0 0" rotation="-90 180 180" play-on-click></a-video>
     </a-nft>
 
     <a-entity camera></a-entity>

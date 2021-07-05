@@ -22,7 +22,7 @@
     <div class="classic-4"></div>
   </div>
 
-  <!-- TODO: Test smoothing paramaters: https://ar-js-org.github.io/AR.js-Docs/image-tracking/ -->
+  
   <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded arjs="
         trackingMethod: best; 
         sourceType: webcam;
@@ -31,6 +31,17 @@
         displayWidth: 1280; 
         displayHeight: 960;
         debugUIEnabled: false;">
+
+        <a-assets>
+          <img id="video_tn" src="./assets/play_button.png">
+
+          <video 
+            id="video_01" 
+            src="./assets/video_01.mp4"
+            loop="true"
+          >
+          </video>
+        </a-assets>
 
     <a-nft type="nft" emitevents="true"
       url="https://arjs-cors-proxy.herokuapp.com/https://kevinmerinsky.nyc3.digitaloceanspaces.com/ar-test/ar-test/marker_300_square_01/marker_300_square_01"
@@ -42,8 +53,47 @@
         position="225 0 -200"
         >
     </a-nft>
+
+<!-- TODO: Test smoothing paramaters: https://ar-js-org.github.io/AR.js-Docs/image-tracking/ -->
+    <a-nft 
+      type="nft" 
+      emitevents="true"
+      url="https://arjs-cors-proxy.herokuapp.com/https://kevinmerinsky.nyc3.digitaloceanspaces.com/ar-test/ar-test/maker_300_square_02/Marker_300_square_02"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".005"
+      smoothThreshold="5">
+        <a-entity
+          geometry="primitive: box" 
+          material="src: #video_01"
+          scale="925 2 520"
+          position="170 0 -270"
+          opacity=""
+          play-on-click
+          >
+    </a-nft>
+
     <a-entity camera></a-entity>
   </a-scene>
+  <script>
+    AFRAME.registerComponent('play-on-click', {
+      init: function () {
+        this.onClick = this.onClick.bind(this);
+      },
+      play: function () {
+        window.addEventListener('click', this.onClick);
+      },
+      pause: function () {
+        window.removeEventListener('click', this.onClick);
+      },
+      onClick: function (evt) {
+        var videoEl = this.el.getAttribute('material').src;
+        if (!videoEl) { return; }
+        this.el.object3D.visible = true;
+        videoEl.play();
+      }
+    });
+  </script>
 </body>
 
 </html>

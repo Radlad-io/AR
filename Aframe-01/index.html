@@ -25,11 +25,19 @@
       vr-mode-ui="enabled: false;"
       renderer="logarithmicDepthBuffer: true;"
       embedded
-      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: true;"
+      arjs="
+        trackingMethod: best; 
+        sourceType: webcam;
+        sourceWidth:1280; 
+        sourceHeight:960; 
+        displayWidth: 1280; 
+        displayHeight: 960;
+        debugUIEnabled: true;"
     >
 
     <a-assets>
       <video id="video_01" src="./assets/video_01.mp4" autoplay></video>
+      <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
     </a-assets>
 
 
@@ -43,9 +51,11 @@
         smoothTolerance=".01"
         smoothThreshold="5"
       >
-      <a-maker>
-        <a-video  position="0 0.2 0" src="#video_01" rotation="90 180 0" vidhandler></a-video>
-      </a-maker>
+
+      <a-entity
+          gltf-model="#animated-asset"
+          scale="2">
+      </a-entity>
 
       </a-nft>
       <!-- static camera that moves according to the device movemenents -->

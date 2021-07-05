@@ -1,0 +1,54 @@
+
+@import url("https://use.typekit.net/vgu6ojm.css");
+@import url("https://use.typekit.net/vgu6ojm.css");
+
+:root {
+	--sierra: #F33800;
+    --stone: #ded5c9;
+    --charcoal: #2e2a2b;
+}
+
+
+body {
+    padding: 30px;
+}
+
+h1, h2, h3, h4,h5, h6 {
+    font-family: soleil, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+b {
+    font-size: 1.2rem;
+    font-family: soleil, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+}
+
+a {
+    font-size: 1rem;
+    font-family: soleil, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+    color: var(--sierra)
+}

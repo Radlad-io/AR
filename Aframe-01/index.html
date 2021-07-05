@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Image based tracking AR.js demo</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- import aframe and then ar.js with image tracking / location based features -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
+
+  <body style="margin: 0px; overflow: hidden">
+
+    <div class="arjs-loader">
+      <img id="loading_image" src="https://kevinmerinsky.nyc3.digitaloceanspaces.com/ar-test/ar-test/images/Temple_Mark.png" />
+      <div class="classic-4"></div>
+    </div>
+
+
+    <!-- TODO: Test smoothing paramaters: https://ar-js-org.github.io/AR.js-Docs/image-tracking/ -->
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: true;"
+    >
+
+    <a-assets>
+      <video id="video_01" src="./assets/video_01.mp4" autoplay></video>
+    </a-assets>
+
+
+      <!-- TODO: Need to recreate markers from 300dpi images -->
+      <a-nft
+        type="nft"
+        emitevents="true"
+        url="https://arjs-cors-proxy.herokuapp.com/https://kevinmerinsky.nyc3.digitaloceanspaces.com/ar-test/ar-test/marker_300_square_01/marker_300_square_01"
+        smooth="true"
+        smoothCount="20"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+      >
+      <a-maker>
+        <a-video  position="0 0.2 0" src="#video_01" rotation="90 180 0" vidhandler></a-video>
+      </a-maker>
+
+      </a-nft>
+      <!-- static camera that moves according to the device movemenents -->
+      <a-entity camera></a-entity>
+    </a-scene>
+    <script>
+      AFRAME.registerComponent('vidhandler', {
+      init: function () {
+        this.toggle = false;
+        document.querySelector("#video_01").pause(); //reference to the video
+      },
+      tick:function(){  
+      if(document.querySelector("a-marker").object3D.visible == true){
+        if(!this.toggle){
+          this.toggle = true;
+          document.querySelector("#video_01").play();
+        }
+      }else{
+        this.toggle = false;
+        document.querySelector("#video_01").pause();
+      }
+      }
+    });
+    </script>
+  </body>
+</html>

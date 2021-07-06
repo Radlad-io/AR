@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Image based tracking AR.js demo</title>
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./css/style.css" />
 
   <!-- import aframe and then ar.js with image tracking / location based features -->
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
@@ -17,8 +17,7 @@
 <body style="margin: 0px; overflow: hidden">
 
   <div class="arjs-loader">
-    <img id="loading_image"
-      src="https://kevinmerinsky.nyc3.digitaloceanspaces.com/ar-test/ar-test/images/Temple_Mark.png" />
+    <img id="loading_image" src="https://kevinmerinsky.nyc3.digitaloceanspaces.com/ar-test/ar-test/images/Temple_Mark.png" />
     <div class="classic-4"></div>
   </div>
 
@@ -30,17 +29,17 @@
   embedded arjs="
         trackingMethod: best; 
         sourceType: webcam;
-        sourceWidth:1920; 
-        sourceHeight:1080; 
-        displayWidth: 1920; 
-        displayHeight: 1080;
+        sourceWidth:1280; 
+        sourceHeight:960; 
+        displayWidth: 1280; 
+        displayHeight: 960;
         debugUIEnabled: false;">
 
         <a-assets>
-          <img id="video_tn" src="./assets/play_button.png">
+          <img id="video_tn" src="./images/play_button.png">
           <video 
             id="video_01" 
-            src="./assets/video_01.mp4"
+            src="./video/video_01.mp4"
             loop="true"
           >
           </video>

@@ -55,3 +55,13 @@ h6 {
   font-size: 1.25em;
   color: white;
 }
+
+button {
+  display: block;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 999;
+  padding: 20px;
+  font-size: 1.5rem;
+}

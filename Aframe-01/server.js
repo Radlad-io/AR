@@ -15,9 +15,12 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-// app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
+app.get('/log', (req, res) => {
+  console.log(req)
+  res.send(status=200)
+});
 
 https.createServer(CERT, app)
   .listen(PORT, function () {
-    console.log(`Example app listening on port ${PORT}! Go to https://localhost:${PORT}/`)
+    console.log(`App running on https://localhost:${PORT}/`)
   })

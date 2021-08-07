@@ -1,71 +1,38 @@
-/* TODO: Remove unused fonts */
-@import url("https://use.typekit.net/dhl6xcp.css");
-
-:root {
-  --red: #d22630;
-}
-
-body {
-  background-color: black;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: museo, serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-#loading_image {
-    height: 45px;
-    margin: 25px;
-}
-
-[class*="classic"]:before {
-  content: "Loading Reality...";
-}
-
-.classic-4 {
-  font-family: monospace;
-  font-size: 30px;
-  clip-path: inset(0 3ch 0 0);
-  animation: c4 1s steps(4) infinite;
-}
-@keyframes c4 {
-  to {
-    clip-path: inset(0 -1ch 0 0);
-  }
-}
-
 .arjs-loader {
-  height: 100%;
+  margin: 0 auto;
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: black;
-  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.arjs-loader div {
-  text-align: center;
-  font-size: 1.25em;
-  color: white;
+.arjs-loader-spinner {
+  z-index: 10;
+  -webkit-transform: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  border: 3px solid #ddd;
+  border-top: 3px solid #42a5f5;
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
 }
 
-button {
-  display: block;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  z-index: 999;
-  padding: 20px;
-  font-size: 1.5rem;
+@-webkit-keyframes spin {
+  to {
+      border-top-color: #42a5f5;
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+      border-top-color: #42a5f5;
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
 }

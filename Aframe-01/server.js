@@ -26,5 +26,5 @@ app.get('/log', (req, res) => {
 https.createServer(CERT, app)
   .listen(PORT, function () {
     console.log(`App running on https://localhost:${PORT}/`)
-    console.log(`or  https://${networkInterfaces.en0[1].address}:${PORT}/`)
+    console.log(`or  https://${networkInterfaces.eth0[0].address}:${PORT}/`)
   })

@@ -4,6 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import LogRocket from 'logrocket';
+LogRocket.init('6ymvvb/uarts-ar');
+
+LogRocket.identify('Test', {
+  name: 'Test User'
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

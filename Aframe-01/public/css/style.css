@@ -5,6 +5,10 @@
   --red: #d22630;
 }
 
+body {
+  background-color: black;
+}
+
 h1,
 h2,
 h3,
